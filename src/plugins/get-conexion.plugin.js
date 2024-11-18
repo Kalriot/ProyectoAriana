@@ -6,15 +6,16 @@ let connection;
 function connect() {
     if (!connection) {
         connection = mysql.createConnection({
-            host: 'localhost',       
+            host: '82.197.82.107',       
             user: 'u971737508_Tuturu',       
             password: 'Paquitosaurio31245',  
-            database: 'u971737508_SistemaDenunci'   
+            database: 'u971737508_SistemaDenunci',
+            port: 3306    
         });
 
         connection.connect(err => {
             if (err) {
-                console.error('Error al conectar con la base de datos:', err);
+                console.error('Error  al conectar con la base de datos:', err);
             } else {
                 console.log('Conectado a la base de datos');
             }
