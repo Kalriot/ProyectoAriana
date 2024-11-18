@@ -1,0 +1,219 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 80%;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h2 {
+    color: #8B0000;
+    font-weight: bold;
+    font-size: 24px;
+    text-decoration: underline;
+    margin-top: 0;
+}
+
+.required-field {
+    color: #8B0000;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+/* Grupos de entrada */
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    background-color: #8B0000;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px 0 0 20px;
+    font-weight: bold;
+    width: 150px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 0 20px 20px 0;
+    background-color: #f0e9e2;
+    font-size: 16px;
+}
+
+.input-group textarea {
+    resize: none;
+}
+
+/* Botones */
+.submit-button {
+    background-color: #8B0000;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+.submit-button:hover {
+    background-color: #a80000;
+}
+
+/* Modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo más oscuro */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Encima de todo */
+}
+
+/* Contenido del modal */
+.modal-content {
+    background-color: white;
+    width: 90%;
+    max-width: 450px;
+    border-radius: 12px; 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    padding: 0; 
+    margin: 0; 
+    overflow: hidden; 
+}
+
+/* Encabezado del modal */
+.modal-header {
+    background-color: #8B0000; 
+    color: white;
+    padding: 15px; 
+    margin: 0; 
+    border-radius: 12px 12px 0 0; 
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+}
+
+
+.modal-header h2 {
+    margin: 0; 
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
+    color: white; 
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover {
+    color: #ddd;
+}
+.modal-body {
+    padding: 20px 25px; 
+    font-size: 16px;
+    line-height: 1.6; 
+    color: #333; 
+    text-align: center; 
+}
+
+
+
+.modal-body a {
+    color: #8B0000;
+    text-decoration: underline;
+    font-weight: bold;
+}
+.modal-body a {
+    color: #8B0000;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.modal-body a:hover {
+    text-decoration: none;
+}
+
+.modal-body input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    text-align: center;
+    margin-top: 15px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Pie del modal */
+.modal-footer {
+    margin-top: 20px; 
+    padding-bottom: 20px; 
+}
+
+.modal-button {
+    background-color: #8B0000;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modal-button:hover {
+    background-color: #b22222;
+    transform: scale(1.05);
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

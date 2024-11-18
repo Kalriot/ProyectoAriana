@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Denuncia</title>
+    <link rel="stylesheet" href="/css/denuncia.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Datos Personales</h2> <!-- Corregido el título -->
+        <p class="required-field">Campo autorrellenado*</p>
+
+        <!-- Datos personales autocompletados (solo lectura) -->
+        <div class="form-section">
+            <div class="input-group">
+                <label>Nombre</label>
+                <input type="text" value="<%= nombre %>" disabled>
+            </div>
+            <div class="input-group">
+                <label>Código</label>
+                <input type="text" value="<%= codigo %>" disabled>
+            </div>
+            <div class="input-group">
+                <label>DNI</label>
+                <input type="text" value="<%= dni %>" disabled>
+            </div>
+            <div class="input-group">
+                <label>Correo</label>
+                <input type="text" value="<%= correo_electronico %>" disabled>
+            </div>
+            <div class="input-group">
+                <label>Facultad</label>
+                <input type="text" value="<%= facultad %>" disabled>
+            </div>
+            <div class="input-group">
+                <label>E.A.P</label>
+                <input type="text" value="<%= eap %>" disabled>
+            </div>
+        </div>
+
+        <!-- Formulario para los detalles del incidente -->
+        <h2>Detalles del Incidente</h2>
+        <form id="denunciaForm" action="/denuncia/guardar-denuncia" method="POST">
+            <input type="hidden" name="id_estudiante" value="<%= id_estudiante %>">
+            <div class="input-group">
+                <label for="telefono">Teléfono</label>
+                <input type="text" id="telefono" name="telefono" required>
+            </div>
+            <div class="input-group">
+                <label for="fecha_incidente">Fecha del Incidente</label>
+                <input type="date" id="fecha_incidente" name="fecha_incidente" required>
+            </div>
+            <div class="input-group">
+                <label for="lugar">Lugar del Incidente</label>
+                <input type="text" id="lugar" name="lugar" required>
+            </div>
+            <div class="input-group">
+                <label for="referencia">Referencia</label>
+                <input type="text" id="referencia" name="referencia">
+            </div>
+            <div class="input-group">
+                <label for="descripcion">Descripción del Accidente</label>
+                <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
+            </div>
+            
+            <button type="submit" class="submit-button">Enviar Denuncia</button>
+        </form>
+
+        <!-- Div para mostrar el mensaje de éxito -->
+        <!-- Modal de Confirmación -->
+        <!-- Modal de Confirmación -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Denuncia Registrada</h2>
+                <span class="close-button" id="closeModal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Se ha registrado correctamente su denuncia.</p>
+                <p>Puede hacer seguimiento en la página web 
+                    <a href="https://www.gob.pe/pnp" target="_blank">www.gob.pe/pnp</a> con el siguiente código:</p>
+                <input type="text" id="codigoSeguimiento" readonly>
+            </div>
+            <div class="modal-footer">
+                <button id="enviarCorreo" class="modal-button">Enviar el correo</button>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+    </div>
+    <script>
+        const form = document.getElementById('denunciaForm');
+        const confirmationModal = document.getElementById('confirmationModal');
+        const closeModal = document.getElementById('closeModal');
+        const enviarCorreo = document.getElementById('enviarCorreo');
+        const codigoSeguimientoInput = document.getElementById('codigoSeguimiento');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch('/denuncia/guardar-denuncia', {
+                    method: 'POST',
+                    body: formData
+                });
+
+        const result = await response.json();
+
+            if (result.success) {
+                codigoSeguimientoInput.value = result.codigoSeguimiento;
+                confirmationModal.style.display = 'flex';
+            } else {
+                alert(result.message);
+            }
+        } catch (error) {
+            console.error('Error al enviar la denuncia:', error);
+            alert('Ocurrió un error al enviar la denuncia.');
+            }
+        });
+
+        closeModal.addEventListener('click', () => {
+            confirmationModal.style.display = 'none';
+        });
+        enviarCorreo.addEventListener('click', () => {
+            alert('Correo enviado con éxito.');        
+        });
+    </script>
+    <script src="/js/denuncia.js"></script>
+</body>
+</html>
