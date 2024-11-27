@@ -103,3 +103,13 @@ label {
 .login-button:hover {
     background-color: #660000;
 }
+.error-message {
+    margin-bottom: 1rem;
+    padding: 10px;
+    border: 1px solid #f44336;
+    background-color: #fdecea;
+    color: #f44336;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 0.9rem;
+}

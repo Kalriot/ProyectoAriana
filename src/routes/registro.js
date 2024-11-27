@@ -24,11 +24,11 @@ router.post('/validar', async (req, res) => {
             const idEstudiante = accesoPermitido.id_estudiante;
             res.redirect(`/denuncia?id_estudiante=${idEstudiante}`);
         } else {
-            res.send('Acceso denegado');
+            res.render('registro', { error: 'Acceso denegado. Verifique sus credenciales.' });
         }
     } catch (error) {
         console.error('Error en la verificación de acceso:', error);
-        res.status(500).send('Error al verificar acceso');
+        res.status(500).render('registro', { error: 'Error al verificar acceso. Intente nuevamente más tarde.' });
     }
 });
 

@@ -7,9 +7,15 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    
     <div class="login-container">
         <img src="images/logouunmsmrojo.png" alt="Logo UNMSM" class="logo">
         <h1>UNMSM</h1>
+        <% if (typeof error !== 'undefined') { %>
+            <div class="error-message">
+                <p><%= error %></p>
+            </div>
+            <% } %>
         <form action="/validar" method="POST">
             <label for="correo">Correo institucional</label>
             <div class="input-group">

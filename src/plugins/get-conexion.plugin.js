@@ -6,11 +6,10 @@ let connection;
 function connect() {
     if (!connection) {
         connection = mysql.createConnection({
-            host: '82.197.82.107',       
-            user: 'u971737508_Tuturu',       
-            password: 'Paquitosaurio31245',  
-            database: 'u971737508_SistemaDenunci',
-            port: 3306    
+            host: 'localhost',       
+            user: 'Tuturu',       
+            password: 'Paquitosaurio',  
+            database: 'sistemadenuncias'
         });
 
         connection.connect(err => {
