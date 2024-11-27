@@ -2,7 +2,9 @@
 const { app, connect, endConnection } = require('./plugins');
 const registroRoutes = require('./routes/registro'); 
 const denunciaRoutes = require('./routes/denuncia'); 
+const multer = require('multer'); 
 
+const upload = multer();  
 // Configuración del motor de vistas
 app.set('view engine', 'ejs');
 
