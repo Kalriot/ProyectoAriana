@@ -1,6 +1,7 @@
 
 
 const mysql = require('mysql2');
+const { endConnection } = require('.');
 
 // Crear el pool de conexiones
 const pool = mysql.createPool({
@@ -38,5 +39,5 @@ function endPool() {
 
 module.exports = {
     getConnection,
-    endPool
+    endConnection
 };
