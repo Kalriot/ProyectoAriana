@@ -4,6 +4,7 @@ const router = express.Router();
 const { verifyAccess } = require('../js-foundation/queries'); 
 const { connect } = require('../plugins'); 
 
+const conexion = connect();
 
 router.get('/', (req, res) => {
     res.render('registro'); 
@@ -17,7 +18,7 @@ router.post('/validar', async (req, res) => {
     }
     correo += '@unmsm.edu.pe';
     try {
-        const accesoPermitido = await verifyAccess(contrasena, correo);
+        const accesoPermitido = await verifyAccess(conexion, contrasena, correo);
         
         if (accesoPermitido.acceso_permitido) {
             const idEstudiante = accesoPermitido.id_estudiante;
