@@ -14,7 +14,7 @@ app.use('/', registroRoutes);
 app.use('/denuncia', denunciaRoutes); 
 
 // Iniciar el servidor
-const PORT = process.env.PORT || 3000;  // Usa el puerto proporcionado por Render
+const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`Servidor ejecutándose en http://localhost:${PORT}`);
 });
