@@ -17,14 +17,12 @@ router.get('/', (req, res) => {
 router.post('/validar', upload.none(), async (req, res) => {
     let { correo, contrasena } = req.body;
 
-    // Verificar si el correo es válido (agregar el dominio si no está presente)
     if (correo.includes('@')) {
-        correo = correo.split('@')[0];  // Aseguramos que solo tomamos la parte antes del @
+        correo = correo.split('@')[0];  
     }
-    correo += '@unmsm.edu.pe';  // Añadimos el dominio institucional
+    correo += '@unmsm.edu.pe';  
 
     try {
-        // Verificar las credenciales con la base de datos
         const accesoPermitido = await verifyAccess(conexion, contrasena, correo);
         
         if (accesoPermitido.acceso_permitido) {

@@ -6,11 +6,10 @@ let connection;
 function connect() {
     if (!connection) {
         connection = mysql.createConnection({
-            host: '44.227.217.144',
-            user: 'u971737508_Tuturu',
-            password: 'Paquitosaurio31245',
-            database: 'u971737508_SistemaDenunci',
-            port: 3306
+            host: 'blsj1wqmfmkypexcxtvj-mysql.services.clever-cloud.com',
+            user: 'uyean69divikr5u4',
+            password: 'OS3aXufqHwFbTrhzTrPj',
+            database: 'blsj1wqmfmkypexcxtvj',
         });
         connection.connect(err => {
             if (err) {
